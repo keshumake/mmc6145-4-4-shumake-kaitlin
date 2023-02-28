@@ -6,7 +6,7 @@ import {
 } from './actions'
 
 export default function reducer(prevState, {action, payload}) {
-  const favBooks = prevState
+  const {favBooks} = prevState
   switch(action) {
     case ADD_BOOK:
       return {...prevState, favBooks: favBooks + 1}
