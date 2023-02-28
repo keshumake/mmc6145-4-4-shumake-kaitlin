@@ -1,5 +1,4 @@
 // TODO: import actions and implement reducer for each action
-export default function reducer() {}
 import {
   ADD_BOOK,
   REMOVE_BOOK,
@@ -15,11 +14,11 @@ export default function reducer(prevState, {action, payload}) {
       return {...prevState, favBooks: favBooks - 1}
     case SEARCH_BOOKS:
       return {...prevState}
+      default:
+        return prevState
     }
-    default:
-      return prevState
   }
-}
+
 
 // This helper function stores the favoriteBook state in localStorage as a string
 function saveToLocalStorage(favBooks) {
