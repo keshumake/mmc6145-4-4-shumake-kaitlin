@@ -5,11 +5,16 @@ import {
   SEARCH_BOOKS
 } from './actions'
 
+
+
 export default function reducer(prevState, {action, payload}) {
   const {favBooks} = prevState
   switch(action) {
     case ADD_BOOK:
-      return {...prevState, favBooks: favBooks + 1}
+      return {...prevState, favBooks: [...favBooks, payload]}
+
+    // create a new array that's the same as the old one, 
+    // but missing the book we want to remove.
     case REMOVE_BOOK:
       return {...prevState, favBooks: favBooks - 1}
     case SEARCH_BOOKS:
