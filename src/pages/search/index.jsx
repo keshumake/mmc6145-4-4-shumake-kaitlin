@@ -20,6 +20,7 @@ export default function Search() {
     )
     if (res.status !== 200) return
     const data = await res.json()
+    console.log('data ', data);
     dispatch({
       action: actions.SEARCH_BOOKS,
       payload: data
