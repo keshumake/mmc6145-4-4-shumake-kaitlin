@@ -8,18 +8,14 @@ import {
 
 
 export default function reducer(prevState, {action, payload}) {
-  if(![ADD_BOOK, REMOVE_BOOK, SEARCH_BOOKS].includes(action)) {
-    return prevState
-  }
   const {favoriteBooks} = prevState
   let updatedFavoriteBooks = favoriteBooks
   switch(action) {
     case ADD_BOOK:
-      updatedFavoriteBooks = [...favoriteBooks, ...payload]
       saveToLocalStorage(updatedFavoriteBooks)
       return {...prevState, favoriteBooks: updatedFavoriteBooks}
     case REMOVE_BOOK:
-      updatedFavoriteBooks = favoriteBooks.filter(book => book.id !== payload[0].id)
+      updatedFavoriteBooks = favoriteBooks.filter(book => book.id !== payload)
       saveToLocalStorage(updatedFavoriteBooks)
       return {...prevState, favoriteBooks: updatedFavoriteBooks}
     case SEARCH_BOOKS:
